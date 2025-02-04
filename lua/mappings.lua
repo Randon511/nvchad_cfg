@@ -54,3 +54,8 @@ vim.keymap.set("n", "<C-u>", "<C-u>zz", { desc = "Half-page up and center", sile
 
 -- Paste and send deleted text to void buffer
 vim.keymap.set("x", "<leader>p", '"_dP')
+
+-- Yank to clipboard
+-- TODO: Figure out clipboard
+-- vim.keymap.set({ "n", "v" }, "<leader>y", [["+y]])
+-- vim.keymap.set("n", "<leader>Y", [["+Y]])

@@ -18,7 +18,7 @@ end
 
 lspconfig.clangd.setup {
   init_options = {
-    compilationDatabasePath = "./build",
+    compilationDatabasePath = "./",
   },
   on_attach = nvlsp.on_attach,
   on_init = nvlsp.on_init,

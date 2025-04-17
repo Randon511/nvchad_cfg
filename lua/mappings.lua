@@ -6,8 +6,15 @@ local map = vim.keymap.set
 
 vim.o.shiftwidth = 4
 
+vim.wo.number = true
+vim.wo.relativenumber = true
+
 map("n", ";", ":", { desc = "CMD enter command mode" })
 map("i", "jk", "<ESC>")
+
+-- Unbind some keybinds
+vim.keymap.del("n", "<leader>h")
+vim.keymap.del("n", "<leader>v")
 
 -- Define a function for find and replace
 local function find_and_replace()
@@ -29,7 +36,7 @@ vim.keymap.set("n", "<leader>fr", find_and_replace, { noremap = true, silent = t
 -- Find and replace selected text
 vim.keymap.set(
   "x",
-  "<leader>r",
+  "<leader>rs",
   'y:%s/<C-r>"//gc<Left><Left><Left>',
   { desc = "Find and replace in selection", silent = false }
 )
@@ -54,6 +61,21 @@ vim.keymap.set("n", "<C-u>", "<C-u>zz", { desc = "Half-page up and center", sile
 
 -- Paste and send deleted text to void buffer
 vim.keymap.set("x", "<leader>p", '"_dP')
+
+-- Set absolute line numbers
+vim.keymap.set("n", "<leader>na", function()
+  vim.wo.number = true
+  vim.wo.relativenumber = false
+end, { desc = "Enable absolute line numbers" })
+
+-- Set relative line numbers
+vim.keymap.set("n", "<leader>nr", function()
+  vim.wo.number = true
+  vim.wo.relativenumber = true
+end, { desc = "Enable relative line numbers" })
+
+-- Run vs code tasks
+vim.keymap.set("n", "<leader>vs", ':lua require("telescope").extensions.vstask.tasks()<CR>')
 
 -- Yank to clipboard
 -- TODO: Figure out clipboard

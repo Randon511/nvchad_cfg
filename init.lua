@@ -38,3 +38,4 @@ end)
 
 require("Comment.ft").set("cpp", { "// %s", "// %s" })
 require("Comment.ft").set("c", { "// %s", "// %s" })
+
